@@ -1,6 +1,11 @@
-# gitsnap
+# GitSnap
 
-gitsnap is a CLI tool to take snapshots of GitHub repositories and convert them into readable text files.
+[![Latest Version]][crates.io] ![Crates.io Downloads](https://img.shields.io/crates/d/gitsnap) ![GitHub Repo stars](https://img.shields.io/github/stars/flaviodelgrosso/gitsnap?style=flat)
+
+[Latest Version]: https://img.shields.io/crates/v/gitsnap.svg
+[crates.io]: https://crates.io/crates/gitsnap
+
+GitSnap is a CLI tool to take snapshots of GitHub repositories and convert them into readable text files.
 
 ## Description
 
