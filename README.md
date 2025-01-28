@@ -10,7 +10,13 @@ gitsnap allows you to download a GitHub repository and convert its contents into
 
 To install gitsnap, you need to have Rust and Cargo installed. You can install Rust and Cargo from [rustup.rs](https://rustup.rs/).
 
-Clone the repository and build the project:
+You can install gitsnap from [crates.io](https://crates.io/crates/gitsnap) using Cargo.
+
+```sh
+cargo install gitsnap
+```
+
+Alternatively, you can build the project from source.
 
 ```sh
 git clone <https://github.com/flaviodelgrosso/GitSnap.git>
