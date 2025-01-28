@@ -1,8 +1,12 @@
 [package]
 name = "gitsnap"
-description = "A tool to take snapshots of GitHub repositories in a single text file."
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/flaviodelgrosso/GitSnap"
+authors = ["Flavio Del Grosso"]
+description = "A tool to take snapshots of GitHub repositories in a single text file."
 
 [dependencies]
 clap = "2.34"
