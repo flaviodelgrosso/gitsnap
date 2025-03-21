@@ -4,6 +4,7 @@ permissions:
   contents: write
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - v[0-9]+.*
@@ -11,14 +12,31 @@ on:
 jobs:
   build:
     uses: ./.github/workflows/build.yml
-  create-release:
+
+  compile:
     needs: build
+    name: release ${{ matrix.target }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [x86_64-pc-windows-gnu, x86_64-unknown-linux-musl]
     steps:
-      - uses: actions/checkout@v4
-      - uses: taiki-e/create-gh-release-action@v1
+      - uses: actions/checkout@master
+      - name: Compile
+        id: compile
+        uses: rust-build/rust-build.action@v1.4.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          # (optional) Path to changelog.
-          changelog: CHANGELOG.md
-          # (required) GitHub token for creating GitHub Releases.
-          token: ${{ secrets.GITHUB_TOKEN }}
+          RUSTTARGET: ${{ matrix.target }}
+          EXTRA_FILES: "README.md LICENSE"
+          UPLOAD_MODE: none
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ${{ steps.compile.outputs.BUILT_ARCHIVE }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

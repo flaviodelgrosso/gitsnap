@@ -11,7 +11,11 @@ GitSnap is a CLI tool to take snapshots of GitHub repositories and convert them 
 
 gitsnap allows you to download a GitHub repository and convert its contents into a single text file. You can specify a file size threshold to skip large files or include all files regardless of size. The tool also supports debug mode for verbose logging.
 
-## Installation
+## Download
+
+You can download the binaries of the latest release from [here](https://github.com/flaviodelgrosso/gitsnap/releases).
+
+## Install from Cargo registry
 
 To install gitsnap, you need to have Rust and Cargo installed. You can install Rust and Cargo from [rustup.rs](https://rustup.rs/).
 
@@ -20,6 +24,8 @@ You can install gitsnap from [crates.io](https://crates.io/crates/gitsnap) using
 ```sh
 cargo install gitsnap
 ```
+
+## Build from source
 
 Alternatively, you can build the project from source.
 
